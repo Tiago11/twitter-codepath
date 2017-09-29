@@ -4,12 +4,12 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/layout/abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
-        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/layout/select_dialog_singlechoice_material.xml"
-    },
-    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/select_dialog_singlechoice_material.xml",
+        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/layout/select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",

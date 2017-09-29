@@ -1,6 +1,6 @@
 package com.raizlabs.android.dbflow.config;
 
-import com.codepath.apps.restclienttemplate.MyDatabase;
+import com.codepath.apps.restclienttemplate.database.MyDatabase;
 import com.codepath.apps.restclienttemplate.models.SampleModel_Table;
 import java.lang.Class;
 import java.lang.Override;

@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.codepath.apps.restclienttemplate.LoginActivity"
+            android:name="com.codepath.apps.restclienttemplate.activities.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>
@@ -41,7 +41,7 @@
                     android:scheme="@string/intent_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name="com.codepath.apps.restclienttemplate.TimelineActivity" />
+        <activity android:name="com.codepath.apps.restclienttemplate.activities.TimelineActivity" />
     </application>
 
 </manifest>

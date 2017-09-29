@@ -1,4 +1,4 @@
-package com.codepath.apps.restclienttemplate;
+package com.codepath.apps.restclienttemplate.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.codepath.apps.restclienttemplate.R;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.util.List;
@@ -50,6 +51,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
         // Populate the views according to this data.
         holder.tvUsername.setText(tweet.getUser().getName());
         holder.tvBody.setText(tweet.getBody());
+        holder.tvCreatedAt.setText(tweet.getCreatedAt());
 
         Glide.with(mContext).load(tweet.getUser().getProfileImageUrl()).into(holder.ivProfileImage);
     }
@@ -63,6 +65,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
         ImageView ivProfileImage;
         TextView tvUsername;
         TextView tvBody;
+        TextView tvCreatedAt;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -72,6 +75,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
             ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
+            tvCreatedAt = (TextView) itemView.findViewById(R.id.tvCreatedAt);
         }
     }
 
