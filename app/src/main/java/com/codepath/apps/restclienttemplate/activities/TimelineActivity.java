@@ -11,6 +11,7 @@ import com.codepath.apps.restclienttemplate.TwitterApp;
 import com.codepath.apps.restclienttemplate.adapters.TweetAdapter;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.network.TwitterClient;
+import com.codepath.apps.restclienttemplate.utils.EndlessRecyclerViewScrollListener;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -29,6 +30,9 @@ public class TimelineActivity extends AppCompatActivity {
     List<Tweet> mTweets;
     RecyclerView rvTweets;
 
+    // Store a member variable for the listener.
+    private EndlessRecyclerViewScrollListener scrollListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +49,28 @@ public class TimelineActivity extends AppCompatActivity {
         mTweetAdapter = new TweetAdapter(mTweets);
 
         // RecyclerView setup (layout manager, use adapter).
-        rvTweets.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        rvTweets.setLayoutManager(linearLayoutManager);
+
+        // Retain an instance so that you can call resetState() for fresh searches.
+        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                populateTimelineSinceId(mTweets.get(mTweets.size()-1).getUid());
+            }
+        };
+        // Adds the scroll listener to RecyclerView.
+        rvTweets.addOnScrollListener(scrollListener);
+
         rvTweets.setAdapter(mTweetAdapter);
 
         mClient = TwitterApp.getRestClient();
-        populateTimeline();
+        populateTimelineSinceId(1);
 
     }
 
-    private void populateTimeline() {
-        mClient.getHomeTimeline(new JsonHttpResponseHandler() {
+    private void populateTimelineSinceId(long id) {
+        mClient.getHomeTimelineSinceId(id, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("TwitterClient", response.toString());
