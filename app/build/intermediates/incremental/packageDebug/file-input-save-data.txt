@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Sep 30 03:32:47 UYT 2017
+#Sat Sep 30 05:01:38 UYT 2017
 14.set=ANDROID_RESOURCE
 180.file=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_/res/drawable-v21/abc_action_bar_item_background_material.xml
 118.set=ANDROID_RESOURCE

@@ -76,7 +76,7 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         // Set the current user.
         getCurrentUser();
 
-        //populateTimelineSinceId(1);
+        populateTimelineSinceId(1);
 
     }
 
@@ -199,6 +199,18 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("TwitterClient", response.toString());
                 Toast.makeText(TimelineActivity.this, "Success! jsonobject", Toast.LENGTH_LONG).show();
+
+                // Get the tweet id from the response.
+                try {
+                    Tweet tweet = Tweet.fromJson(response);
+                    Toast.makeText(TimelineActivity.this, tweet.getUser().getName(), Toast.LENGTH_LONG).show();
+                    mTweets.add(0, tweet);
+                    mTweetAdapter.notifyItemInserted(0);
+                    rvTweets.scrollToPosition(0);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
