@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-39:12
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:3:5-51
 		INJECTED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml
@@ -19,89 +19,93 @@ uses-permission#android.permission.INTERNET
 ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:7:5-67
 	android:name
 		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:7:22-64
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:8:5-81
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:8:22-78
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:8:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:9:22-78
 application
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:10:5-37:19
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:5-38:19
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:4.0.3] /home/tiago/.android/build-cache/d2f18416fea05788de8de70a60ee32e4156b8c1d/output/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/tiago/.android/build-cache/0b8fdc3d393cbae20b0d672dea52f14d2a48d964/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/tiago/.android/build-cache/30582d9b631932c225441894d0962158142ecb27/output/AndroidManifest.xml:26:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/tiago/.android/build-cache/bdb0233cff0f425518f848faf0192450befb87c8/output/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-ui:25.3.1] /home/tiago/.android/build-cache/02636182a60144fc18ba7d8a17745526942ed0d3/output/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] /home/tiago/.android/build-cache/3090166b217bc7438cebed62f345ef8805629ea6/output/AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:14:9-41
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:15:9-41
 	android:allowBackup
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:9-35
 	android:icon
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:13:9-45
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:14:9-45
 	android:theme
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:15:9-40
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:16:9-40
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:9-35
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:12:9-35
 activity#com.codepath.apps.restclienttemplate.activities.LoginActivity
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:16:9-35:20
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:17:9-36:20
 	android:label
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:18:13-45
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:13-45
 	android:theme
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:19:13-44
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:20:13-44
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:17:13-53
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:18:13-53
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:20:13-24:29
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:17-69
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:21:25-66
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:23:17-77
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:23:27-74
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:24:27-74
 intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:25:13-34:29
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:13-35:29
 action#android.intent.action.VIEW
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:17-69
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:27:17-69
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:27:25-66
 category#android.intent.category.DEFAULT
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:28:17-76
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:17-76
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:28:27-73
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:27-73
 category#android.intent.category.BROWSABLE
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:17-78
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:30:17-78
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:29:27-75
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:30:27-75
 data
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:31:17-33:62
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:32:17-34:62
 	android:host
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:32:21-55
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:33:21-55
 	android:scheme
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:33:21-59
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:34:21-59
 activity#com.codepath.apps.restclienttemplate.activities.TimelineActivity
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:36:9-74
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:9-74
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:36:19-62
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:19-62
 uses-sdk
 INJECTED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:4.0.3] /home/tiago/.android/build-cache/d2f18416fea05788de8de70a60ee32e4156b8c1d/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.codepath.libraries:android-oauth-handler:1.2.5] /home/tiago/.android/build-cache/994db4721c07153f60613b53476bf721162a7a76/output/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:25.3.1] /home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/tiago/.android/build-cache/0b8fdc3d393cbae20b0d672dea52f14d2a48d964/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/tiago/.android/build-cache/30582d9b631932c225441894d0962158142ecb27/output/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/tiago/.android/build-cache/bdb0233cff0f425518f848faf0192450befb87c8/output/AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/tiago/.android/build-cache/8812c3facf1f737fbf1a5918f590e81642f2a1f8/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:21:5-23:63
 MERGED from [com.android.support:support-core-ui:25.3.1] /home/tiago/.android/build-cache/02636182a60144fc18ba7d8a17745526942ed0d3/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:25.3.1] /home/tiago/.android/build-cache/3090166b217bc7438cebed62f345ef8805629ea6/output/AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.3.1] /home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/AndroidManifest.xml:23:9-75
@@ -113,14 +117,14 @@ MERGED from [com.android.support:support-compat:25.3.1] /home/tiago/.android/bui
 		INJECTED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml
 meta-data#android.support.VERSION
 ADDED from [com.android.support:appcompat-v7:25.3.1] /home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:animated-vector-drawable:25.3.1] /home/tiago/.android/build-cache/0b8fdc3d393cbae20b0d672dea52f14d2a48d964/output/AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:support-vector-drawable:25.3.1] /home/tiago/.android/build-cache/30582d9b631932c225441894d0962158142ecb27/output/AndroidManifest.xml:22:5-24:34
 MERGED from [com.android.support:recyclerview-v7:25.3.1] /home/tiago/.android/build-cache/8812c3facf1f737fbf1a5918f590e81642f2a1f8/output/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /home/tiago/.android/build-cache/d24e994fc5d6f026f973818fd95d6d119f7276a0/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /home/tiago/.android/build-cache/7d0423e704a8f210368ab24a88c0c1914e08a0aa/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /home/tiago/.android/build-cache/ac87da7e0466bfed9936cdcea6f6c187232105d8/output/AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-core-ui:25.3.1] /home/tiago/.android/build-cache/02636182a60144fc18ba7d8a17745526942ed0d3/output/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /home/tiago/.android/build-cache/fc096fe59cae4dd7d0aa1157651efe2d27bdb22b/output/AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-compat:25.3.1] /home/tiago/.android/build-cache/3090166b217bc7438cebed62f345ef8805629ea6/output/AndroidManifest.xml:25:5-27:34
 	android:value
 		ADDED from [com.android.support:appcompat-v7:25.3.1] /home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/AndroidManifest.xml:27:9-31
