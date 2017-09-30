@@ -50,6 +50,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
 
         // Populate the views according to this data.
         holder.tvUsername.setText(tweet.getUser().getName());
+        holder.tvScreenName.setText(tweet.getUser().getScreenName());
         holder.tvBody.setText(tweet.getBody());
         holder.tvCreatedAt.setText(tweet.getCreatedAt());
 
@@ -75,6 +76,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivProfileImage;
         TextView tvUsername;
+        TextView tvScreenName;
         TextView tvBody;
         TextView tvCreatedAt;
 
@@ -85,6 +87,7 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
 
             ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
+            tvScreenName = (TextView) itemView.findViewById(R.id.tvScreenName);
             tvBody = (TextView) itemView.findViewById(R.id.tvBody);
             tvCreatedAt = (TextView) itemView.findViewById(R.id.tvCreatedAt);
         }
