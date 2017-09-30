@@ -4,12 +4,24 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/anim/abc_slide_in_bottom.xml"
     },
     {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_snackbar_in.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_snackbar_in.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_fab_out.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_fab_out.xml"
+    },
+    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/anim/abc_grow_fade_in_from_bottom.xml"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_snackbar_out.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_snackbar_out.xml"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
@@ -32,8 +44,20 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/anim/abc_fade_out.xml"
     },
     {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_out.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_fab_in.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_fab_in.xml"
+    },
+    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/design_bottom_sheet_slide_in.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/anim/design_bottom_sheet_slide_in.xml"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",

@@ -61,6 +61,17 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
         return mTweets.size();
     }
 
+    // Methods for SwipeRefresh.
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    public void addAll(List<Tweet> tweets) {
+        mTweets.addAll(tweets);
+        notifyDataSetChanged();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView ivProfileImage;
         TextView tvUsername;

@@ -2,11 +2,13 @@ package com.codepath.apps.restclienttemplate.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.R;
 import com.codepath.apps.restclienttemplate.TwitterApp;
@@ -28,10 +30,14 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
     User mCurrentUser;
     TweetAdapter mTweetAdapter;
     List<Tweet> mTweets;
+
     RecyclerView rvTweets;
 
     // Store a member variable for the listener.
-    private EndlessRecyclerViewScrollListener scrollListener;
+    private EndlessRecyclerViewScrollListener mScrollListener;
+
+    // Store a member variable for the swipe refresh container.
+    private SwipeRefreshLayout mSwipeContainer;
 
 
     @Override
@@ -57,22 +63,39 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         rvTweets.setLayoutManager(linearLayoutManager);
 
         // Retain an instance so that you can call resetState() for fresh searches.
-        scrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
+        mScrollListener = new EndlessRecyclerViewScrollListener(linearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 populateTimelineSinceId(mTweets.get(mTweets.size()-1).getUid());
             }
         };
         // Adds the scroll listener to RecyclerView.
-        rvTweets.addOnScrollListener(scrollListener);
+        rvTweets.addOnScrollListener(mScrollListener);
 
         rvTweets.setAdapter(mTweetAdapter);
+
+        // Get the swipe container view.
+        mSwipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        // Setup refresh listener which triggers new data loading.
+        mSwipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Toast.makeText(TimelineActivity.this, "Hola!", Toast.LENGTH_LONG).show();
+                refreshTimeline();
+            }
+        });
+        // Configure the refreshing colors.
+        mSwipeContainer.setColorSchemeResources(android.R.color.holo_blue_bright,
+                android.R.color.holo_green_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_red_light);
 
         mClient = TwitterApp.getRestClient();
 
         // Set the current user.
         getCurrentUser();
 
+        // Populate the RecyclerView with the tweets from the currentUser timeline.
         populateTimelineSinceId(1);
 
     }
@@ -126,6 +149,17 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
                 tweetHandler.getPopulateTimelineHandler(mTweets, mTweetAdapter, TimelineActivity.this));
     }
 
+    private void refreshTimeline() {
+
+        mTweetAdapter.clear();
+        mTweetAdapter.notifyDataSetChanged();
+
+        // Get the handler for GET refreshTimeline.
+        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
+
+        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(TimelineActivity.this, mTweets, mTweetAdapter, mSwipeContainer));
+    }
+
     @Override
     public void onSendTweetComposeDialog(Tweet tweet) {
         // Get the handler for POST composeDialog.
@@ -134,7 +168,4 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         mClient.postTweet(tweet, tweetHandler.getComposeTweetHandler(TimelineActivity.this, mTweets, mTweetAdapter, rvTweets));
     }
 
-    public void setCurrentUser(User user) {
-        mCurrentUser = user;
-    }
 }

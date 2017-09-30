@@ -32,6 +32,10 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/color/abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/color/design_tint_password_toggle.xml"
+    },
+    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/color/abc_tint_spinner.xml"
     },
@@ -66,6 +70,10 @@
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/res/color/design_error.xml"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
