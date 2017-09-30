@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.R;
 import com.codepath.apps.restclienttemplate.TwitterApp;
@@ -80,7 +79,6 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         mSwipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Toast.makeText(TimelineActivity.this, "Hola!", Toast.LENGTH_LONG).show();
                 refreshTimeline();
             }
         });
@@ -157,7 +155,7 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         // Get the handler for GET refreshTimeline.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 
-        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(TimelineActivity.this, mTweets, mTweetAdapter, mSwipeContainer));
+        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(TimelineActivity.this, mTweetAdapter, mSwipeContainer));
     }
 
     @Override

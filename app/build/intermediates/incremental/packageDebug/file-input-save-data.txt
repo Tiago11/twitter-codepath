@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Sep 30 17:25:57 UYT 2017
+#Sat Sep 30 19:59:46 UYT 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_light.9.png

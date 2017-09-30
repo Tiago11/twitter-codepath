@@ -2,9 +2,13 @@ package com.codepath.apps.restclienttemplate.models;
 
 import com.codepath.apps.restclienttemplate.utils.ParseRelativeDate;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by tiago on 9/26/17.
@@ -27,6 +31,19 @@ public class Tweet {
         this.body = body;
     }
 
+    public Tweet(JSONObject jsonObject) {
+        try {
+
+            this.body = jsonObject.getString("text");
+            this.uid = jsonObject.getLong("id");
+            this.createdAt = jsonObject.getString("created_at");
+            this.user = User.fromJson(jsonObject.getJSONObject("user"));
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Deserialize the JSON
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {
         Tweet tweet = new Tweet();
@@ -38,6 +55,21 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
 
         return tweet;
+    }
+
+    // Static factory method to create a collection of tweets.
+    public static List<Tweet> fromJsonArray(JSONArray array) {
+        ArrayList<Tweet> results = new ArrayList<>();
+
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                results.add(new Tweet(array.getJSONObject(i)));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return results;
     }
 
     public String getBody() {

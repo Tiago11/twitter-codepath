@@ -14,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -49,6 +48,7 @@ public class TweetJsonHttpResponseHandler {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("TwitterClient", response.toString());
+                /*
                 // Iterate through the JSONArray.
                 // For each object, deserialize the JSON Object.
                 for (int i = 0; i < response.length(); i++) {
@@ -63,6 +63,9 @@ public class TweetJsonHttpResponseHandler {
                         e.printStackTrace();
                     }
                 }
+                */
+                tweets.addAll(Tweet.fromJsonArray(response));
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -114,7 +117,7 @@ public class TweetJsonHttpResponseHandler {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("TwitterClient", response.toString());
-
+/*
                 List<Tweet> newTweets = new ArrayList<>();
                 // Iterate through the JSONArray.
                 // For each object, deserialize the JSON Object.
@@ -129,8 +132,8 @@ public class TweetJsonHttpResponseHandler {
                         e.printStackTrace();
                     }
                 }
-
-                adapter.addAll(newTweets);
+*/
+                adapter.addAll(Tweet.fromJsonArray(response));
                 swipeRefreshLayout.setRefreshing(false);
             }
 
