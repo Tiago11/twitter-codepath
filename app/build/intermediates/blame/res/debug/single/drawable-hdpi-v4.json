@@ -20,12 +20,12 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
-        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png",
-        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
-    },
-    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png",
+        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png",
@@ -60,12 +60,12 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_015.png"
     },
     {
-        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
-        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_list_divider_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png",
+        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_ic_star_black_36dp.png",
@@ -92,12 +92,12 @@
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
-        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png"
-    },
-    {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/notify_panel_notification_icon_bg.png",
         "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png",
+        "source": "/home/tiago/.android/build-cache/86071ddfab30e0e7275f9b4d002a394a25fe4bcf/output/res/drawable-hdpi-v4/abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/abc_btn_radio_to_on_mtrl_015.png",
