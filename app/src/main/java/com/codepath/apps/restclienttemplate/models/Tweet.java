@@ -4,11 +4,13 @@ import com.codepath.apps.restclienttemplate.utils.ParseRelativeDate;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by tiago on 9/26/17.
  */
 
+@Parcel
 public class Tweet {
 
     // List of attributes.
@@ -16,6 +18,14 @@ public class Tweet {
     public long uid;
     public User user;
     public String createdAt;
+
+    public Tweet() {
+        // Empty constructor needed by the Parceler library.
+    }
+
+    public Tweet(String body) {
+        this.body = body;
+    }
 
     // Deserialize the JSON
     public static Tweet fromJson(JSONObject jsonObject) throws JSONException {

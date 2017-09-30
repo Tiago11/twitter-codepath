@@ -2,18 +2,24 @@ package com.codepath.apps.restclienttemplate.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 /**
  * Created by tiago on 9/26/17.
  */
 
+@Parcel
 public class User {
 
     // List all the attributes.
-    String name;
-    Long uid;
-    String screenName;
-    String profileImageUrl;
+    public String name;
+    public Long uid;
+    public String screenName;
+    public String profileImageUrl;
+
+    public User() {
+        // Empty constructor needed by the Parceler library.
+    }
 
     // Deserialize the JSON.
     public static User fromJson(JSONObject jsonObject) throws JSONException {
@@ -36,7 +42,7 @@ public class User {
     }
 
     public String getScreenName() {
-        return screenName;
+        return "@" + screenName;
     }
 
     public String getProfileImageUrl() {

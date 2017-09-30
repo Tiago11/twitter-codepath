@@ -8,12 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.R;
 import com.codepath.apps.restclienttemplate.TwitterApp;
 import com.codepath.apps.restclienttemplate.adapters.TweetAdapter;
 import com.codepath.apps.restclienttemplate.fragments.ComposeDialogFragment;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.apps.restclienttemplate.network.TwitterClient;
 import com.codepath.apps.restclienttemplate.utils.EndlessRecyclerViewScrollListener;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -27,9 +29,10 @@ import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 
-public class TimelineActivity extends AppCompatActivity {
+public class TimelineActivity extends AppCompatActivity implements ComposeDialogFragment.ComposeDialogListener {
 
     TwitterClient mClient;
+    User mCurrentUser;
     TweetAdapter mTweetAdapter;
     List<Tweet> mTweets;
     RecyclerView rvTweets;
@@ -69,7 +72,11 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setAdapter(mTweetAdapter);
 
         mClient = TwitterApp.getRestClient();
-        populateTimelineSinceId(1);
+
+        // Set the current user.
+        getCurrentUser();
+
+        //populateTimelineSinceId(1);
 
     }
 
@@ -94,9 +101,48 @@ public class TimelineActivity extends AppCompatActivity {
 
     private void showComposeDialog() {
         FragmentManager fm = getSupportFragmentManager();
-        ComposeDialogFragment composeDialogFragment = ComposeDialogFragment.newInstance();
+        ComposeDialogFragment composeDialogFragment = ComposeDialogFragment.newInstance(mCurrentUser);
 
         composeDialogFragment.show(fm, "fragment_compose_tweet");
+    }
+
+    private void getCurrentUser() {
+        mClient.getCurrentUser(new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.d("TwitterClient", response.toString());
+                Toast.makeText(TimelineActivity.this, "getUser Success", Toast.LENGTH_LONG).show();
+
+                try {
+                    mCurrentUser = User.fromJson(response);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                Log.d("TwitterClient", response.toString());
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("TwitterClient", responseString);
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("TwitterClient", errorResponse.toString());
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                Log.d("TwitterClient", errorResponse.toString());
+                throwable.printStackTrace();
+            }
+        });
     }
 
     private void populateTimelineSinceId(long id) {
@@ -124,6 +170,41 @@ public class TimelineActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                Log.d("TwitterClient", responseString);
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                Log.d("TwitterClient", errorResponse.toString());
+                throwable.printStackTrace();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONArray errorResponse) {
+                Log.d("TwitterClient", errorResponse.toString());
+                throwable.printStackTrace();
+            }
+        });
+    }
+
+    @Override
+    public void onSendTweetComposeDialog(Tweet tweet) {
+        mClient.postTweet(tweet, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Log.d("TwitterClient", response.toString());
+                Toast.makeText(TimelineActivity.this, "Success! jsonobject", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                Log.d("TwitterClient", response.toString());
+                Toast.makeText(TimelineActivity.this, "Success! jsonarray", Toast.LENGTH_LONG).show();
             }
 
             @Override
