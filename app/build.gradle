@@ -54,4 +54,5 @@ dependencies {
     compile "com.android.support:design:${supportLibVersion}"
     compile "com.android.support:support-vector-drawable:${supportLibVersion}" // VectorDrawableCompat
     compile "com.android.support:animated-vector-drawable:${supportLibVersion}" // AnimatedVectorDrawableCompat
+    compile 'joda-time:joda-time:2.9.9'
 }
