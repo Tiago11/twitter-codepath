@@ -718,9 +718,9 @@ int drawable design_ic_visibility 0x7f020057
 int drawable design_ic_visibility_off 0x7f020058
 int drawable design_password_eye 0x7f020059
 int drawable design_snackbar_background 0x7f02005a
-int drawable ic_compose 0x7f02005b
-int drawable ic_launcher 0x7f02005c
-int drawable ic_quill3 0x7f02005d
+int drawable ic_close 0x7f02005b
+int drawable ic_compose 0x7f02005c
+int drawable ic_launcher 0x7f02005d
 int drawable ic_twitter_logo 0x7f02005e
 int drawable navigation_empty_icon 0x7f02005f
 int drawable notification_action_background 0x7f020060
