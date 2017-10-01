@@ -17,18 +17,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/tvBody" />
 
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivProfileImage"
+        android:layout_height="match_parent"
         android:layout_below="@+id/tvUserName"
         android:layout_marginLeft="5dp"
         android:layout_toEndOf="@+id/ivProfileImage"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvCreatedAt"
@@ -42,9 +45,13 @@
         android:id="@+id/tvScreenName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/darkGrey"
+        android:layout_marginLeft="5dp"
         android:layout_above="@+id/tvBody"
         android:layout_toEndOf="@+id/tvUserName"
-        android:text="TextView" />
+        android:text="TextView"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>
 
 
