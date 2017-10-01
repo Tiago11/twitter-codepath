@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Oct 01 01:18:35 UYT 2017
+#Sun Oct 01 01:35:09 UYT 2017
 210.set=ANDROID_RESOURCE
 14.set=ANDROID_RESOURCE
 180.file=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/res/resources-debug.ap_/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png
