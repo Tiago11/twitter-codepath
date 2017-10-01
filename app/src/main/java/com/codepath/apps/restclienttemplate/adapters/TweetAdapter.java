@@ -29,7 +29,6 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
     }
 
     // For each row, inflate the layout and cache the references into the viewHolder.
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
@@ -62,12 +61,13 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
         return mTweets.size();
     }
 
-    // Methods for SwipeRefresh.
+    // Clears the underlying data in the adapter, method used for SwipeRefresh.
     public void clear() {
         mTweets.clear();
         notifyDataSetChanged();
     }
 
+    // Adds a collection of items into the underlying data in the adapter, method used for SwipeRefresh.
     public void addAll(List<Tweet> tweets) {
         mTweets.addAll(tweets);
         notifyDataSetChanged();
@@ -84,7 +84,6 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
             super(itemView);
 
             // Perform findViewById lookups.
-
             ivProfileImage = (ImageView) itemView.findViewById(R.id.ivProfileImage);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvScreenName = (TextView) itemView.findViewById(R.id.tvScreenName);

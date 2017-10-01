@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Oct 01 14:53:36 UYT 2017
+#Sun Oct 01 16:40:39 UYT 2017
 20.base=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar
 143.base=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar
 493.base=/home/tiago/AndroidProjects/MySimpleTweets/app/build/intermediates/transforms/mergeJavaRes/debug/jars/2/1f/main.jar

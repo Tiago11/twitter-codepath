@@ -39,6 +39,7 @@ public class ComposeDialogFragment extends DialogFragment {
 
     private User mCurrentUser;
 
+    // Interface used to send data back to parent activity (TimelineActivity).
     public interface ComposeDialogListener {
         void onSendTweetComposeDialog(Tweet tweet);
     }
@@ -52,7 +53,7 @@ public class ComposeDialogFragment extends DialogFragment {
         // Remove the title from the dialog fragment.
         frag.setStyle(Window.FEATURE_NO_TITLE, 0);
 
-        // Pass the user to the dialog.
+        // Pass the current user to the dialog.
         Bundle args = new Bundle();
         args.putParcelable("user", Parcels.wrap(user));
         frag.setArguments(args);

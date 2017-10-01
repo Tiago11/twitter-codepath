@@ -1030,9 +1030,11 @@ int string path_password_eye 0x7f06002a
 int string path_password_eye_mask_strike_through 0x7f06002b
 int string path_password_eye_mask_visible 0x7f06002c
 int string path_password_strike_through 0x7f06002d
+int string rest_consumer_key 0x7f06002e
+int string rest_consumer_secret 0x7f06002f
 int string search_menu_title 0x7f060013
 int string status_bar_notification_info_overflow 0x7f060014
-int string tweet 0x7f06002e
+int string tweet 0x7f060030
 int style AlertDialog_AppCompat 0x7f0800a2
 int style AlertDialog_AppCompat_Light 0x7f0800a3
 int style Animation_AppCompat_Dialog 0x7f0800a4

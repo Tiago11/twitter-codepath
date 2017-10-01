@@ -22,22 +22,28 @@ import cz.msebera.android.httpclient.Header;
  * Created by tiago on 9/30/17.
  */
 
+// Auxiliary class to refactor JsonHttpResponseHandler logic out of activities.
 public class TweetJsonHttpResponseHandler {
 
+    // Listener used to send data back to the activity.
     private TweetHandlerListener mListener;
 
+    // Constructor
     public TweetJsonHttpResponseHandler() {
         this.mListener = null;
     }
 
+    // Interface used to send data back to the activity.
     public interface TweetHandlerListener {
         public void setCurrentUser(User user);
     }
 
+    // Set the listener.
     public void setTweetHanlerListener(TweetHandlerListener listener) {
         this.mListener = listener;
     }
 
+    // Get a JsonHttpResponseHandler for the populateTimeline API call.
     public JsonHttpResponseHandler getPopulateTimelineHandler(final List<Tweet> tweets, final TweetAdapter adapter, final Context context) {
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
@@ -48,22 +54,7 @@ public class TweetJsonHttpResponseHandler {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("TwitterClient", response.toString());
-                /*
-                // Iterate through the JSONArray.
-                // For each object, deserialize the JSON Object.
-                for (int i = 0; i < response.length(); i++) {
-                    // Convert each object to a Tweet model.
-                    // Add that tweet model to our data source.
-                    // Notify the adapter that we'have added an item.
-                    try {
-                        Tweet tweet = Tweet.fromJson(response.getJSONObject(i));
-                        tweets.add(tweet);
-                        adapter.notifyItemInserted(tweets.size() - 1);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                */
+
                 tweets.addAll(Tweet.fromJsonArray(response));
                 adapter.notifyDataSetChanged();
             }
@@ -107,6 +98,7 @@ public class TweetJsonHttpResponseHandler {
         return  handler;
     }
 
+    // Get a JsonHttpResponseHandler for the refreshTimeline API call.
     public JsonHttpResponseHandler getRefreshTimelineHandler(final Context context, final TweetAdapter adapter, final SwipeRefreshLayout swipeRefreshLayout) {
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
@@ -117,22 +109,7 @@ public class TweetJsonHttpResponseHandler {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("TwitterClient", response.toString());
-/*
-                List<Tweet> newTweets = new ArrayList<>();
-                // Iterate through the JSONArray.
-                // For each object, deserialize the JSON Object.
-                for (int i = 0; i < response.length(); i++) {
-                    // Convert each object to a Tweet model.
-                    // Add that tweet model to our data source.
-                    // Notify the adapter that we'have added an item.
-                    try {
-                        Tweet tweet = Tweet.fromJson(response.getJSONObject(i));
-                        newTweets.add(tweet);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-*/
+
                 adapter.addAll(Tweet.fromJsonArray(response));
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -176,6 +153,7 @@ public class TweetJsonHttpResponseHandler {
         return handler;
     }
 
+    // Get a JsonHttpResponseHandler for the composeTweet API call.
     public JsonHttpResponseHandler getComposeTweetHandler(final Context context, final List<Tweet> tweets, final TweetAdapter adapter, final RecyclerView rvTweets) {
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
@@ -233,6 +211,7 @@ public class TweetJsonHttpResponseHandler {
         return handler;
     }
 
+    // Get a JsonHttpResponseHandler for the getCurrentUser API call.
     public JsonHttpResponseHandler getCurrentUserHandler(final Context context) {
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
@@ -241,6 +220,7 @@ public class TweetJsonHttpResponseHandler {
 
                 try {
                     User currentUser = User.fromJson(response);
+                    // Use the listener to send the current user information back to the activity.
                     if (mListener != null) {
                         mListener.setCurrentUser(currentUser);
                     }

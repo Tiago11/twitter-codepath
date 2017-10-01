@@ -27,10 +27,11 @@ import java.util.List;
 public class TimelineActivity extends AppCompatActivity implements ComposeDialogFragment.ComposeDialogListener {
 
     TwitterClient mClient;
+
     User mCurrentUser;
+
     TweetAdapter mTweetAdapter;
     List<Tweet> mTweets;
-
     RecyclerView rvTweets;
 
     // Store a member variable for the listener.
@@ -46,18 +47,113 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         setContentView(R.layout.activity_timeline);
 
         // Setup Toolbar.
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ContextCompat.getColor(this, R.color.ColorPrimary)));
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.drawable.ic_twitter_logo);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setTitle("");
+        setupToolbar();
 
         // Check connectivity.
         ConnectivityChecker cc = new ConnectivityChecker(this);
         cc.checkConnectivity();
 
+        // Setup RecyclerView, TweetsAdapter and Tweets collection.
+        setupTweetsRecyclerView();
+
+        // Setup SwipeContainer for refreshing the timeline.
+        setupSwipeContainer();
+
+        // Get the client.
+        mClient = TwitterApp.getRestClient();
+
+        // Set the current user.
+        getCurrentUser();
+
+        // Populate the RecyclerView with the tweets from the currentUser timeline.
+        populateTimelineSinceId(1);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_compose:
+                // Start the compose dialog fragment to create a new Tweet.
+                showComposeDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    // Show the "compose new tweet dialog" and pass to it the current user information.
+    private void showComposeDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        ComposeDialogFragment composeDialogFragment = ComposeDialogFragment.newInstance(mCurrentUser);
+
+        composeDialogFragment.show(fm, "fragment_compose_tweet");
+    }
+
+    // Make the API call to get the current user information.
+    private void getCurrentUser() {
+        // Get the handler for GET currentUser
+        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
+        // Set listener to get the current user.
+        tweetHandler.setTweetHanlerListener(new TweetJsonHttpResponseHandler.TweetHandlerListener() {
+            @Override
+            public void setCurrentUser(User user) {
+                mCurrentUser = user;
+            }
+        });
+
+        mClient.getCurrentUser(tweetHandler.getCurrentUserHandler(TimelineActivity.this));
+
+    }
+
+    // Make the API call to get the users timeline since the tweet with id `id`.
+    private void populateTimelineSinceId(long id) {
+        // Get the handler for GET populateTimeline.
+        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
+
+        mClient.getHomeTimelineSinceId(id,
+                tweetHandler.getPopulateTimelineHandler(mTweets, mTweetAdapter, TimelineActivity.this));
+    }
+
+    // Make the API call to refresh the timeline.
+    private void refreshTimeline() {
+
+        mTweetAdapter.clear();
+        mTweetAdapter.notifyDataSetChanged();
+
+        // Get the handler for GET refreshTimeline.
+        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
+
+        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(TimelineActivity.this, mTweetAdapter, mSwipeContainer));
+    }
+
+    // Receive the tweet created in the composeDialog, and make the API call to POST it.
+    @Override
+    public void onSendTweetComposeDialog(Tweet tweet) {
+        // Get the handler for POST composeDialog.
+        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
+
+        mClient.postTweet(tweet, tweetHandler.getComposeTweetHandler(TimelineActivity.this, mTweets, mTweetAdapter, rvTweets));
+    }
+
+    // Setup the toolbar.
+    private void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.drawable.ic_twitter_logo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setTitle("");
+    }
+
+    // Find references and set the TweetsAdapter, TweetsRecyclerView and Tweets collection.
+    private void setupTweetsRecyclerView() {
         // Find the RecyclerView.
         rvTweets = (RecyclerView) findViewById(R.id.rvTimeline);
 
@@ -82,7 +178,10 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         rvTweets.addOnScrollListener(mScrollListener);
 
         rvTweets.setAdapter(mTweetAdapter);
+    }
 
+    // Setup the SwipeContainer to manage the timeline refresh on swipe.
+    private void setupSwipeContainer() {
         // Get the swipe container view.
         mSwipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading.
@@ -97,82 +196,6 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
                 android.R.color.holo_blue_bright,
                 android.R.color.holo_blue_bright,
                 android.R.color.holo_blue_bright);
-
-        mClient = TwitterApp.getRestClient();
-
-        // Set the current user.
-        getCurrentUser();
-
-        // Populate the RecyclerView with the tweets from the currentUser timeline.
-        populateTimelineSinceId(1);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_compose:
-                // Start the compose dialog fragment.
-                showComposeDialog();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void showComposeDialog() {
-        FragmentManager fm = getSupportFragmentManager();
-        ComposeDialogFragment composeDialogFragment = ComposeDialogFragment.newInstance(mCurrentUser);
-
-        composeDialogFragment.show(fm, "fragment_compose_tweet");
-    }
-
-    private void getCurrentUser() {
-        // Get the handler for GET currentUser
-        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
-        // Set listener to get the current user.
-        tweetHandler.setTweetHanlerListener(new TweetJsonHttpResponseHandler.TweetHandlerListener() {
-            @Override
-            public void setCurrentUser(User user) {
-                mCurrentUser = user;
-            }
-        });
-
-        mClient.getCurrentUser(tweetHandler.getCurrentUserHandler(TimelineActivity.this));
-
-    }
-
-    private void populateTimelineSinceId(long id) {
-        // Get the handler for GET populateTimeline.
-        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
-
-        mClient.getHomeTimelineSinceId(id,
-                tweetHandler.getPopulateTimelineHandler(mTweets, mTweetAdapter, TimelineActivity.this));
-    }
-
-    private void refreshTimeline() {
-
-        mTweetAdapter.clear();
-        mTweetAdapter.notifyDataSetChanged();
-
-        // Get the handler for GET refreshTimeline.
-        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
-
-        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(TimelineActivity.this, mTweetAdapter, mSwipeContainer));
-    }
-
-    @Override
-    public void onSendTweetComposeDialog(Tweet tweet) {
-        // Get the handler for POST composeDialog.
-        TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
-
-        mClient.postTweet(tweet, tweetHandler.getComposeTweetHandler(TimelineActivity.this, mTweets, mTweetAdapter, rvTweets));
     }
 
 }

@@ -31,7 +31,7 @@ public class Tweet {
     }
 
     public Tweet(String body) {
-        if (body.length() > 140) {
+        if (body.length() > TWITTER_CHARACTER_LIMIT) {
             this.body = "";
             throw new InvalidParameterException("Tweet body exceeds the " + TWITTER_CHARACTER_LIMIT + " character limit.");
         }
