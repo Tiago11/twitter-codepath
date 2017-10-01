@@ -4,6 +4,9 @@ package com.codepath.apps.restclienttemplate.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.content.ContextCompat;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.codepath.apps.restclienttemplate.R;
@@ -20,6 +24,8 @@ import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.User;
 
 import org.parceler.Parcels;
+
+import java.security.InvalidParameterException;
 
 public class ComposeDialogFragment extends DialogFragment {
 
@@ -84,12 +90,17 @@ public class ComposeDialogFragment extends DialogFragment {
         btnSendTweet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Tweet tweet = new Tweet(etBody.getText().toString());
+                try {
+                    Tweet tweet = new Tweet(etBody.getText().toString());
 
-                ComposeDialogListener listener = (ComposeDialogListener) getActivity();
-                listener.onSendTweetComposeDialog(tweet);
-                // Close the dialog and return back to the parent activity.
-                dismiss();
+                    ComposeDialogListener listener = (ComposeDialogListener) getActivity();
+                    listener.onSendTweetComposeDialog(tweet);
+                    // Close the dialog and return back to the parent activity.
+                    dismiss();
+                } catch (InvalidParameterException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getContext(), "Invalid tweet, won't be sent.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -98,6 +109,34 @@ public class ComposeDialogFragment extends DialogFragment {
             public void onClick(View v) {
                 // Close the dialog and return to the parent activity.
                 dismiss();
+            }
+        });
+
+        etBody.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Empty implementation.
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                int charactersLeft = Tweet.TWITTER_CHARACTER_LIMIT - s.length();
+                if (charactersLeft < 0) {
+                    btnSendTweet.setEnabled(false);
+                    btnSendTweet.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.darkGrey));
+                    tvCharacterCounter.setTextColor(ContextCompat.getColor(getContext(), R.color.red));
+                } else {
+                    btnSendTweet.setEnabled(true);
+                    btnSendTweet.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.ColorPrimary));
+                    tvCharacterCounter.setTextColor(ContextCompat.getColor(getContext(), R.color.black));
+                }
+
+                tvCharacterCounter.setText(String.valueOf(charactersLeft));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Empty implementation.
             }
         });
     }

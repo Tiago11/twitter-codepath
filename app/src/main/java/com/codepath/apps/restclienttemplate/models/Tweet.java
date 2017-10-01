@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcel;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ import java.util.List;
 
 @Parcel
 public class Tweet {
+
+    public static final int TWITTER_CHARACTER_LIMIT = 140;
 
     // List of attributes.
     public String body;
@@ -28,6 +31,10 @@ public class Tweet {
     }
 
     public Tweet(String body) {
+        if (body.length() > 140) {
+            this.body = "";
+            throw new InvalidParameterException("Tweet body exceeds the " + TWITTER_CHARACTER_LIMIT + " character limit.");
+        }
         this.body = body;
     }
 
