@@ -8,4 +8,6 @@
     <string name="action_compose">compose</string>
     <string name="tweet">Tweet</string>
     <string name="profile">Profile</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
 </resources>

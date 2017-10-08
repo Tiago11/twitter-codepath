@@ -43,7 +43,15 @@
             </intent-filter>
         </activity>
         <activity android:name="com.codepath.apps.restclienttemplate.activities.TimelineActivity" />
-        <activity android:name="com.codepath.apps.restclienttemplate.activities.ProfileActivity" />
+        <activity
+            android:name="com.codepath.apps.restclienttemplate.activities.ProfileActivity"
+            android:parentActivityName="com.codepath.apps.restclienttemplate.activities.TimelineActivity" >
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.codepath.apps.restclienttemplate.activities.TimelineActivity" />
+        </activity>
     </application>
 
 </manifest>

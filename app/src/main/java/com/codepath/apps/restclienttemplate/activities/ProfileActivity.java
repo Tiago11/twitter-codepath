@@ -2,8 +2,11 @@ package com.codepath.apps.restclienttemplate.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +26,9 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        // Setup Toolbar.
+        setupToolbar();
 
         client = TwitterApp.getRestClient();
         TweetJsonHttpResponseHandler handler = new TweetJsonHttpResponseHandler();
@@ -49,6 +55,17 @@ public class ProfileActivity extends AppCompatActivity {
         ft.commit();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void populateUserHeadline(User user) {
         TextView tvName = (TextView) findViewById(R.id.tvName);
         TextView tvTagline = (TextView) findViewById(R.id.tvTagline);
@@ -59,9 +76,18 @@ public class ProfileActivity extends AppCompatActivity {
 
         tvName.setText(user.getName());
         tvTagline.setText(user.getTagline());
-        tvFollowers.setText(user.getFollowersCount() + " followers");
-        tvFollowing.setText(user.getFollowingCount() + " following");
+        tvFollowers.setText(user.getFollowersCount() + " " + R.string.followers);
+        tvFollowing.setText(user.getFollowingCount() + " " + R.string.following);
 
         Glide.with(this).load(user.getProfileImageUrl()).into(ivProfileImage);
+    }
+
+
+    // Setup the toolbar.
+    private void setupToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
     }
 }

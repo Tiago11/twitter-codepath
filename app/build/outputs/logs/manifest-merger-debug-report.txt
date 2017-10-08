@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-41:12
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:2:1-47:12
 	package
 		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:3:5-51
 		INJECTED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml
@@ -28,7 +28,7 @@ ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManife
 	android:name
 		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:9:22-78
 application
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:5-39:19
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:11:5-45:19
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:4.0.3] /home/tiago/.android/build-cache/d2f18416fea05788de8de70a60ee32e4156b8c1d/output/AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:25.3.1] /home/tiago/.android/build-cache/217b540b93178f581241ad48d840c58dfbefa8fc/output/AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:transition:25.3.1] /home/tiago/.android/build-cache/30b1cbb4ed163fe65ff3986a1e31466f4370f5a2/output/AndroidManifest.xml:26:5-20
@@ -91,13 +91,21 @@ ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManife
 	android:scheme
 		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:34:21-59
 activity#com.codepath.apps.restclienttemplate.activities.TimelineActivity
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:9-65
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:9-101
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:19-62
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:37:19-98
 activity#com.codepath.apps.restclienttemplate.activities.ProfileActivity
-ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:9-73
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:9-44:20
+	android:parentActivityName
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:39:13-106
 	android:name
-		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:19-61
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:38:19-97
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:41:13-43:100
+	android:value
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:43:17-97
+	android:name
+		ADDED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml:42:17-63
 uses-sdk
 INJECTED from /home/tiago/AndroidProjects/MySimpleTweets/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.github.Raizlabs.DBFlow:dbflow:4.0.3] /home/tiago/.android/build-cache/d2f18416fea05788de8de70a60ee32e4156b8c1d/output/AndroidManifest.xml:7:5-9:41
