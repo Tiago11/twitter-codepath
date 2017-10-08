@@ -15,11 +15,12 @@ public class HomeTimelineFragment extends TweetsListFragment {
 
     // Make the API call to get the users timeline since the tweet with id `id`.
     public void populateTimelineSinceId(long id) {
+
         // Get the handler for GET populateTimeline.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 
         mClient.getHomeTimelineSinceId(id,
-                tweetHandler.getPopulateTimelineHandler(id, mTweets, mTweetAdapter, getContext()));
+                tweetHandler.getPopulateTimelineHandler(id, mTweets, mTweetAdapter, getContext(), mProgressBarListener));
     }
 
     // Make the API call to refresh the timeline.
@@ -31,7 +32,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
         // Get the handler for GET refreshTimeline.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 
-        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(getContext(), mTweetAdapter, mSwipeContainer));
+        mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(getContext(), mTweetAdapter, mSwipeContainer, mProgressBarListener));
     }
 
     public void insertTweetAtTop(Tweet tweet) {

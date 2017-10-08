@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.codepath.apps.restclienttemplate.adapters.TweetAdapter;
+import com.codepath.apps.restclienttemplate.interfaces.ProgressBarListener;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -44,11 +45,15 @@ public class TweetJsonHttpResponseHandler {
     }
 
     // Get a JsonHttpResponseHandler for the populateTimeline API call.
-    public JsonHttpResponseHandler getPopulateTimelineHandler(final long maxId, final List<Tweet> tweets, final TweetAdapter adapter, final Context context) {
+    public JsonHttpResponseHandler getPopulateTimelineHandler(final long maxId, final List<Tweet> tweets, final TweetAdapter adapter, final Context context, final ProgressBarListener progressBarListener) {
+        // Start showing the progress bar.
+        progressBarListener.showProgressBar();
+
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -62,6 +67,8 @@ public class TweetJsonHttpResponseHandler {
                     tweets.addAll(newTweets);
                     adapter.notifyDataSetChanged();
                 }
+
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -72,6 +79,8 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -82,6 +91,8 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -92,11 +103,15 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+
+                progressBarListener.hideProgressBar();
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
                 super.onSuccess(statusCode, headers, responseString);
+
+                progressBarListener.hideProgressBar();
             }
         };
 
@@ -104,11 +119,14 @@ public class TweetJsonHttpResponseHandler {
     }
 
     // Get a JsonHttpResponseHandler for the refreshTimeline API call.
-    public JsonHttpResponseHandler getRefreshTimelineHandler(final Context context, final TweetAdapter adapter, final SwipeRefreshLayout swipeRefreshLayout) {
+    public JsonHttpResponseHandler getRefreshTimelineHandler(final Context context, final TweetAdapter adapter, final SwipeRefreshLayout swipeRefreshLayout, final ProgressBarListener progressBarListener) {
+        progressBarListener.showProgressBar();
+
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -117,6 +135,7 @@ public class TweetJsonHttpResponseHandler {
 
                 adapter.addAll(Tweet.fromJsonArray(response));
                 swipeRefreshLayout.setRefreshing(false);
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -127,6 +146,7 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -137,6 +157,7 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+                progressBarListener.hideProgressBar();
             }
 
             @Override
@@ -147,11 +168,13 @@ public class TweetJsonHttpResponseHandler {
                 // Check connectivity.
                 ConnectivityChecker cc = new ConnectivityChecker(context);
                 cc.checkConnectivity();
+                progressBarListener.hideProgressBar();
             }
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
                 super.onSuccess(statusCode, headers, responseString);
+                progressBarListener.hideProgressBar();
             }
         };
 

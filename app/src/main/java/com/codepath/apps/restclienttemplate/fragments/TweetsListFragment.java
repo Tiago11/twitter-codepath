@@ -1,5 +1,6 @@
 package com.codepath.apps.restclienttemplate.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,11 +10,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.R;
 import com.codepath.apps.restclienttemplate.TwitterApp;
 import com.codepath.apps.restclienttemplate.adapters.TweetAdapter;
+import com.codepath.apps.restclienttemplate.interfaces.ProgressBarListener;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.network.TwitterClient;
 import com.codepath.apps.restclienttemplate.utils.EndlessRecyclerViewScrollListener;
@@ -32,6 +33,7 @@ public abstract class TweetsListFragment extends Fragment implements TweetAdapte
     RecyclerView rvTweets;
 
     TwitterClient mClient;
+    ProgressBarListener mProgressBarListener;
 
     // Store a member variable for the swipe refresh container.
     SwipeRefreshLayout mSwipeContainer;
@@ -122,6 +124,17 @@ public abstract class TweetsListFragment extends Fragment implements TweetAdapte
     @Override
     public void onItemSelected(View view, int position) {
         Tweet tweet = mTweets.get(position);
-        Toast.makeText(getContext(), tweet.body, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(), tweet.body, Toast.LENGTH_SHORT).show();
+    }
+
+    // Store the listener (activity) that will fire the progressBar events.
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (activity instanceof ProgressBarListener) {
+            mProgressBarListener = (ProgressBarListener) activity;
+        } else {
+            throw new ClassCastException(activity.toString() + " has to implement the ProgressBarListener interface.");
+        }
     }
 }

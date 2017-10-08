@@ -30,7 +30,7 @@ public class UserTimelineFragment extends TweetsListFragment {
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 
         mClient.getUserTimelineSinceId(screenName, id,
-                tweetHandler.getPopulateTimelineHandler(id, mTweets, mTweetAdapter, getContext()));
+                tweetHandler.getPopulateTimelineHandler(id, mTweets, mTweetAdapter, getContext(), mProgressBarListener));
     }
 
     // Make the API call to refresh the timeline.
@@ -43,6 +43,6 @@ public class UserTimelineFragment extends TweetsListFragment {
         // Get the handler for GET refreshTimeline.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 
-        mClient.getUserTimelineSinceId(screenName, 1, tweetHandler.getRefreshTimelineHandler(getContext(), mTweetAdapter, mSwipeContainer));
+        mClient.getUserTimelineSinceId(screenName, 1, tweetHandler.getRefreshTimelineHandler(getContext(), mTweetAdapter, mSwipeContainer, mProgressBarListener));
     }
 }

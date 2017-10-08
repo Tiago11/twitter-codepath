@@ -15,17 +15,21 @@ import com.codepath.apps.restclienttemplate.TwitterApp;
 import com.codepath.apps.restclienttemplate.adapters.TweetsPagerAdapter;
 import com.codepath.apps.restclienttemplate.fragments.ComposeDialogFragment;
 import com.codepath.apps.restclienttemplate.fragments.HomeTimelineFragment;
+import com.codepath.apps.restclienttemplate.interfaces.ProgressBarListener;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.codepath.apps.restclienttemplate.models.User;
 import com.codepath.apps.restclienttemplate.network.ConnectivityChecker;
 import com.codepath.apps.restclienttemplate.network.TweetJsonHttpResponseHandler;
 import com.codepath.apps.restclienttemplate.network.TwitterClient;
 
-public class TimelineActivity extends AppCompatActivity implements ComposeDialogFragment.ComposeDialogListener {
+public class TimelineActivity extends AppCompatActivity implements ComposeDialogFragment.ComposeDialogListener, ProgressBarListener {
 
     User mCurrentUser;
     ViewPager vpPager;
     TweetsPagerAdapter tweetsPagerAdapter;
+
+    // Instance of the progress action-view
+    MenuItem miActionProgressItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +66,14 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Store instance of the menu item containing progress
+        miActionProgressItem = menu.findItem(R.id.miActionProgress);
+
+        return super.onPrepareOptionsMenu(menu);
     }
 
     @Override
@@ -109,5 +121,24 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
     public void onProfileView(MenuItem item) {
         Intent i = new Intent(this, ProfileActivity.class);
         startActivity(i);
+    }
+
+    // Implementation of ProgressBarListener interface method.
+    @Override
+    public void showProgressBar() {
+        // Show progress item
+        if (miActionProgressItem != null) {
+            miActionProgressItem.setVisible(true);
+        }
+    }
+
+
+    // Implementation of ProgressBarListener interface method.
+    @Override
+    public void hideProgressBar() {
+        // Hide progress item
+        if (miActionProgressItem != null) {
+            miActionProgressItem.setVisible(false);
+        }
     }
 }
