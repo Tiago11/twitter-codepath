@@ -35,7 +35,9 @@ public class TwitterClient extends OAuthBaseClient {
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
 		params.put("count", 25);
-		params.put("since_id", id);
+        if (id != 1) {
+            params.put("max_id", id);
+        }
 		client.get(apiUrl, params, handler);
 	}
 
@@ -43,6 +45,14 @@ public class TwitterClient extends OAuthBaseClient {
 	public void getCurrentUser(AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("account/verify_credentials.json");
         client.get(apiUrl, handler);
+    }
+
+    // API call to get a user's info.
+    public void getUserInfo(String screenName, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("users/show.json");
+        RequestParams params = new RequestParams();
+        params.put("screen_name", screenName);
+        client.get(apiUrl, params, handler);
     }
 
     // API call to get the tweet with id `id`.
@@ -59,5 +69,28 @@ public class TwitterClient extends OAuthBaseClient {
         RequestParams params = new RequestParams();
         params.put("status", tweet.getBody());
         client.post(apiUrl, params, handler);
+    }
+
+	public void getMentionsTimelineSinceId(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("count", 10);
+        if (id != 1) {
+            params.put("max_id", id);
+        }
+		client.get(apiUrl, params, handler);
+	}
+
+    public void getUserTimelineSinceId(String screenName, long id, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/user_timeline.json");
+        // Can specify query string params directly or through RequestParams.
+        RequestParams params = new RequestParams();
+        params.put("count", 25);
+        params.put("screen_name", screenName);
+        if (id != 1) {
+            params.put("max_id", id);
+        }
+        client.get(apiUrl, params, handler);
     }
 }

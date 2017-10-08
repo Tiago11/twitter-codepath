@@ -43,6 +43,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.codepath.apps.restclienttemplate.activities.TimelineActivity" />
+        <activity android:name="com.codepath.apps.restclienttemplate.activities.ProfileActivity" />
     </application>
 
 </manifest>

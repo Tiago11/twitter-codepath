@@ -39,12 +39,12 @@ public class TweetJsonHttpResponseHandler {
     }
 
     // Set the listener.
-    public void setTweetHanlerListener(TweetHandlerListener listener) {
+    public void setTweetHandlerListener(TweetHandlerListener listener) {
         this.mListener = listener;
     }
 
     // Get a JsonHttpResponseHandler for the populateTimeline API call.
-    public JsonHttpResponseHandler getPopulateTimelineHandler(final List<Tweet> tweets, final TweetAdapter adapter, final Context context) {
+    public JsonHttpResponseHandler getPopulateTimelineHandler(final long maxId, final List<Tweet> tweets, final TweetAdapter adapter, final Context context) {
         JsonHttpResponseHandler handler = new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -55,8 +55,13 @@ public class TweetJsonHttpResponseHandler {
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 Log.d("TwitterClient", response.toString());
 
-                tweets.addAll(Tweet.fromJsonArray(response));
-                adapter.notifyDataSetChanged();
+                List<Tweet> newTweets = Tweet.fromJsonArray(response);
+
+                // If there is no new tweets, do nothing.
+                if (newTweets.size() > 0 && newTweets.get(0).getUid() > maxId) {
+                    tweets.addAll(newTweets);
+                    adapter.notifyDataSetChanged();
+                }
             }
 
             @Override

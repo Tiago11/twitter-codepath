@@ -17,6 +17,10 @@ public class User {
     public String screenName;
     public String profileImageUrl;
 
+    public String tagline;
+    public int followersCount;
+    public int followingCount;
+
     public User() {
         // Empty constructor needed by the Parceler library.
     }
@@ -33,6 +37,10 @@ public class User {
             user.screenName = jsonObject.getString("screen_name");
         }
         user.profileImageUrl = jsonObject.getString("profile_image_url");
+
+        user.tagline = jsonObject.getString("description");
+        user.followersCount = jsonObject.getInt("followers_count");
+        user.followingCount = jsonObject.getInt("friends_count");
 
         return user;
     }
@@ -51,6 +59,18 @@ public class User {
 
     public String getProfileImageUrl() {
         return profileImageUrl;
+    }
+
+    public String getTagline() {
+        return this.tagline;
+    }
+
+    public  int getFollowersCount() {
+        return this.followersCount;
+    }
+
+    public int getFollowingCount() {
+        return this.followingCount;
     }
 
 }

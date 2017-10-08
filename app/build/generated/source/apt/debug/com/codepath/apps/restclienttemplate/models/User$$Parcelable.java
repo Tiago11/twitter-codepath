@@ -8,7 +8,7 @@ import org.parceler.IdentityCollection;
 import org.parceler.ParcelWrapper;
 import org.parceler.ParcelerRuntimeException;
 
-@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-10-01T16:40-0300")
+@Generated(value = "org.parceler.ParcelAnnotationProcessor", date = "2017-10-08T16:53-0300")
 @SuppressWarnings({
     "unchecked",
     "deprecation"
@@ -57,8 +57,11 @@ public class User$$Parcelable
                 parcel$$1 .writeLong(user$$1 .uid);
             }
             parcel$$1 .writeString(user$$1 .name);
+            parcel$$1 .writeString(user$$1 .tagline);
             parcel$$1 .writeString(user$$1 .screenName);
+            parcel$$1 .writeInt(user$$1 .followersCount);
             parcel$$1 .writeString(user$$1 .profileImageUrl);
+            parcel$$1 .writeInt(user$$1 .followingCount);
         }
     }
 
@@ -93,8 +96,11 @@ public class User$$Parcelable
             }
             user$$4 .uid = long$$0;
             user$$4 .name = parcel$$3 .readString();
+            user$$4 .tagline = parcel$$3 .readString();
             user$$4 .screenName = parcel$$3 .readString();
+            user$$4 .followersCount = parcel$$3 .readInt();
             user$$4 .profileImageUrl = parcel$$3 .readString();
+            user$$4 .followingCount = parcel$$3 .readInt();
             com.codepath.apps.restclienttemplate.models.User user$$3 = user$$4;
             identityMap$$1 .put(identity$$1, user$$3);
             return user$$3;
