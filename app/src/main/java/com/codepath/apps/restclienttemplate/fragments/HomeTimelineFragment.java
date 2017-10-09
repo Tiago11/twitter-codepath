@@ -9,6 +9,7 @@ import com.codepath.apps.restclienttemplate.network.TweetJsonHttpResponseHandler
 
 public class HomeTimelineFragment extends TweetsListFragment {
 
+    // HomeTimelineFragment is a subclass of TweetsListFragment and implements the parent's abstract methods.
     public HomeTimelineFragment() {
 
     }
@@ -35,6 +36,7 @@ public class HomeTimelineFragment extends TweetsListFragment {
         mClient.getHomeTimelineSinceId(1, tweetHandler.getRefreshTimelineHandler(getContext(), mTweetAdapter, mSwipeContainer, mProgressBarListener));
     }
 
+    // Make the API call to post a new tweet, handles insertion in the adapter.
     public void insertTweetAtTop(Tweet tweet) {
         // Get the handler for POST composeDialog.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();

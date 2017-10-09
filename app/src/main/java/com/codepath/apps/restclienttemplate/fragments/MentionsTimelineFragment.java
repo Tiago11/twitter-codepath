@@ -8,12 +8,14 @@ import com.codepath.apps.restclienttemplate.network.TweetJsonHttpResponseHandler
 
 public class MentionsTimelineFragment extends TweetsListFragment {
 
+    // MentionsTimelineFragment is a subclass of TweetsListFragment and implements the parent's abstract methods.
     public MentionsTimelineFragment() {
 
     }
 
     // Make the API call to get the users timeline since the tweet with id `id`.
     public void populateTimelineSinceId(long id) {
+
         // Get the handler for GET populateTimeline.
         TweetJsonHttpResponseHandler tweetHandler = new TweetJsonHttpResponseHandler();
 

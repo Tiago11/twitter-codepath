@@ -54,11 +54,8 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         });
         client.getCurrentUser(handler.getCurrentUserHandler(this));
 
-        vpPager = (ViewPager) findViewById(R.id.viewpager);
-        tweetsPagerAdapter = new TweetsPagerAdapter(getSupportFragmentManager(), this);
-        vpPager.setAdapter(tweetsPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
-        tabLayout.setupWithViewPager(vpPager);
+        // Setup ViewPager and PagerAdapter.
+        setupViewPager();
     }
 
     @Override
@@ -118,10 +115,23 @@ public class TimelineActivity extends AppCompatActivity implements ComposeDialog
         getSupportActionBar().setTitle("");
     }
 
+
+    // Setup the ViewPager.
+    private void setupViewPager() {
+        vpPager = (ViewPager) findViewById(R.id.viewpager);
+        tweetsPagerAdapter = new TweetsPagerAdapter(getSupportFragmentManager(), this);
+        vpPager.setAdapter(tweetsPagerAdapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(vpPager);
+    }
+
+
+    // Start the currentUser ProfileActivity.
     public void onProfileView(MenuItem item) {
         Intent i = new Intent(this, ProfileActivity.class);
         startActivity(i);
     }
+
 
     // Implementation of ProgressBarListener interface method.
     @Override

@@ -10,6 +10,7 @@ import com.codepath.apps.restclienttemplate.network.TweetJsonHttpResponseHandler
 
 public class UserTimelineFragment extends TweetsListFragment {
 
+    // UserTimelineFragment is a subclass of TweetsListFragment and implements the parent's abstract methods.
     public UserTimelineFragment() {
 
     }

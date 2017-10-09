@@ -43,16 +43,21 @@ public class ProfileActivity extends AppCompatActivity implements ProgressBarLis
             }
         });
 
+        // Get the screen named passed by the TimelineActivity.
         String screenName = getIntent().getStringExtra("screen_name");
 
+        // If the screenName is empty, we show the currentUser info,
+        // otherwise the info of the screenName user.
         if (TextUtils.isEmpty(screenName)) {
             client.getCurrentUser(handler.getCurrentUserHandler(this));
         } else {
             client.getUserInfo(screenName, handler.getCurrentUserHandler(this));
         }
 
+        // Get the fragment responsible of showing the user timeline.
         UserTimelineFragment userTimelineFragment = UserTimelineFragment.newInstance(screenName);
 
+        // Set the fragment.
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.flContainer, userTimelineFragment);
         ft.commit();
@@ -66,6 +71,7 @@ public class ProfileActivity extends AppCompatActivity implements ProgressBarLis
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
+        // Get a reference to the progressBar menu item.
         miActionProgressItem = menu.findItem(R.id.miActionProgress);
         return super.onPrepareOptionsMenu(menu);
     }
@@ -81,6 +87,7 @@ public class ProfileActivity extends AppCompatActivity implements ProgressBarLis
         }
     }
 
+    // Populate the views inside the header with the user `user` information.
     private void populateUserHeadline(User user) {
         TextView tvName = (TextView) findViewById(R.id.tvName);
         TextView tvTagline = (TextView) findViewById(R.id.tvTagline);

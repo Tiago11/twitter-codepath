@@ -63,6 +63,8 @@ public class TweetAdapter extends  RecyclerView.Adapter<TweetAdapter.ViewHolder>
 
         Glide.with(mContext).load(tweet.getUser().getProfileImageUrl()).into(holder.ivProfileImage);
 
+        // Set onClick listener on the image. It starts a ProfileActivity for the tweet user.
+        // Sends the screenName of the image clicked to the new activity.
         holder.ivProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -71,6 +71,7 @@ public abstract class TweetsListFragment extends Fragment implements TweetAdapte
         return v;
     }
 
+    // Abstract methods that will be implemented by concrete subclasses.
     public abstract void populateTimelineSinceId(long id);
 
     public abstract void refreshTimeline();
